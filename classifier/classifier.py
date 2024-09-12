@@ -55,6 +55,11 @@ class ThemeClassifier:
 
     def get_themes(self, path, save_path=None):
         
+        # Read Save Output if Exists
+        if save_path is not None and os.path.exists(save_path):
+            df = pd.read_csv(save_path)
+            return df
+        
         # Load dataset
         df = load_subs(path)
 
@@ -68,3 +73,4 @@ class ThemeClassifier:
         if save_path:
             df.to_csv(save_path, index=False)
             
+        return df
