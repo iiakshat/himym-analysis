@@ -35,7 +35,7 @@ class ThemeClassifier:
         sentence_batch_size = 20
         script_batches = []
         for index in range(0, len(script_sentences), sentence_batch_size):
-            script_batches.append("".join(script_sentences[index:index + sentence_batch_size]))
+            script_batches.append(" ".join(script_sentences[index:index + sentence_batch_size]))
 
         theme_output = self.theme_classifier(
             script_batches,
@@ -55,10 +55,15 @@ class ThemeClassifier:
 
     def get_themes(self, path, save_path=None):
         
-        # Read Save Output if Exists
+        if save_path and not save_path.endswith(".csv"):
+            save_path += "series.csv"
+
+        # Read Saved Output, if Exists
         if save_path is not None and os.path.exists(save_path):
             df = pd.read_csv(save_path)
-            return df
+            if set(df.columns) == set(self.theme_list):
+                return df
+            
         
         # Load dataset
         df = load_subs(path)
