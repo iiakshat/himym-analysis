@@ -10,12 +10,11 @@ def load_subs(path):
     for sub in subs:
         with open(sub, "r", encoding="utf-8") as f:
             lines = f.readlines()
-            cnt = 0
             con = []
             for line in lines:
-                line = line.strip()
+                line = line.strip().replace("Sync", "").replace("vNaru", "")
                 if line.isnumeric() or "-->" in line:
-                    cnt += 1
+                    continue
                 else:
                     con.append(line)
         
