@@ -1,5 +1,6 @@
 import gradio as gr
 from classifier import ThemeClassifier
+from characters import CharacterNetworkGenerator, NamedEntityRecognizer
 
 def process(theme_list, subtitles_path, save_path):
 
@@ -34,6 +35,23 @@ def process(theme_list, subtitles_path, save_path):
     return output_chart
     
 
+def get_char_network(subtitles_path, save_path):
+
+    char_network = CharacterNetworkGenerator()
+    ner = NamedEntityRecognizer()
+
+    if not save_path:
+        save_path = "cache"
+    
+    if not subtitles_path:
+        return char_network.defaultGraph(save_path)
+
+    ner_df = ner.get_ners(subtitles_path, save_path)
+    df = char_network.generate_char_network(ner_df)
+    html = char_network.draw_char_network(df)
+
+    return html
+    
 
 def main():
 
@@ -52,8 +70,23 @@ def main():
 
                         get_theme = gr.Button("Go")
                         get_theme.click(process, inputs=[theme_list, subtitles_path, save_path], outputs=[plot])
+    
+    # Character Network:
+        with gr.Row():
+            with gr.Column():
+                gr.HTML('<h2>Character Network</h2>')
+                with gr.Row():
+                    with gr.Column():
+                        network = gr.HTML()
+                    with gr.Column():
+                        subtitles_path = gr.Textbox(label="Subtitles or script Path")
+                        save_path = gr.Textbox(label="Save Path")
+                        get_network = gr.Button("Go")
+                        get_network.click(get_char_network, inputs=[subtitles_path, save_path], outputs=[network])
         
     iface.launch(share=True)
 
 if __name__ == "__main__":
     main()
+
+# drama, vulgar, sex, sacrifice, happy, romance, love, friendship, sad, anger, betrayel, narration, funny
