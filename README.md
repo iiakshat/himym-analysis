@@ -12,14 +12,18 @@ This project leverages `gradio` for the web interface, allowing users to perform
 - Upload subtitles or scripts.
 - Visualize the distribution of themes in the series using a bar chart.
 
+![{5E844593-2CAB-4712-94A4-450DD7627EF3}](https://github.com/user-attachments/assets/28fad21e-0bcb-46f9-9b77-768a1c6b917e)
+ 
+
 ### 2. __Character Network:__
 - Generate and visualize character interaction networks.
 - Extract named entities from subtitles or scripts to create character networks.
 
+![{43A0A626-DDE2-4297-96D8-EE918B4A4E08}](https://github.com/user-attachments/assets/643b7927-2d31-4873-a353-6c57585534dc)
+
 ### 3. __Talk To Barney:__
 - Ask anything from Barney and the answer is gonna be legend- wait for it, -dary.
 
-![{43A0A626-DDE2-4297-96D8-EE918B4A4E08}](https://github.com/user-attachments/assets/643b7927-2d31-4873-a353-6c57585534dc)
 
 ## Installation
 __Clone the repository:__
