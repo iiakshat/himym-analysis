@@ -1,3 +1,9 @@
+---
+title: himym-analysis
+app_file: app.py
+sdk: gradio
+sdk_version: 4.36.1
+---
 # HOW I MET YOUR MOTHER - SERIES ANALYSIS
 
 ![project3](https://github.com/user-attachments/assets/21f729dc-0767-4174-b4cc-b52c20519184)
