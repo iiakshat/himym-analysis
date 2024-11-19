@@ -105,5 +105,3 @@ class CharacterNetworkGenerator:
         except:
             pass     
         return output_html
-    
-print(CharacterNetworkGenerator().defaultGraph("cache"))
