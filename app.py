@@ -14,7 +14,6 @@ def process(theme_list, subtitles_path, save_path):
     themes = [theme.lower().strip() for theme in theme_list]
     clf = ThemeClassifier(themes)
 
-
     output_df = clf.get_themes(subtitles_path,save_path)
     output_df = output_df[themes]
 
