@@ -28,7 +28,7 @@ This project leverages `gradio` for the web interface, allowing users to perform
 ![{43A0A626-DDE2-4297-96D8-EE918B4A4E08}](https://github.com/user-attachments/assets/643b7927-2d31-4873-a353-6c57585534dc)
 
 ### 3. __Talk To Barney:__
-- Ask anything from Barney and the answer is gonna be legend- wait for it, -dary.
+- Ask anything from Barney and the answer is gonna be legend- wait for it.. -dary.
 
 
 ## Installation
